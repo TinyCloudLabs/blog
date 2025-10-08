@@ -1,3 +1,618 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// TinyCloud brutalist styling
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--light);
+}
+
+body {
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+// Headers with brutal uppercase styling
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+// Brutalist black borders
+.header-container {
+    border-bottom: 4px solid var(--dark);
+    background: var(--light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+// Navigation styling
+.page-header {
+    .page-title {
+        font-size: 24px;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: -1px;
+    }
+    
+    border-bottom: 4px solid var(--dark);
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+// Sidebar styling with borders
+aside.sidebar {
+    border: 3px solid var(--dark);
+    background: var(--light);
+    padding: 20px !important;
+    margin: 10px;
+    
+    h3 {
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 2px solid var(--secondary);
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+}
+
+// Explorer styling
+.explorer {
+    background: var(--light);
+    border: none;
+    
+    button {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 10px 0;
+    }
+    
+    .folder, .file {
+        a {
+            font-weight: 600;
+            text-transform: none;
+            transition: all 0.2s;
+            
+            &:hover {
+                background: var(--secondary);
+                color: var(--light);
+                padding: 2px 8px;
+                margin: -2px -8px;
+            }
+        }
+    }
+}
+
+// Main content area
+article.popover-hint {
+    background: var(--light);
+    border: 3px solid var(--dark);
+    padding: 40px !important;
+    margin: 20px 0;
+}
+
+// Links with brutal hover effect
+a {
+    color: var(--secondary);
+    font-weight: 700;
+    position: relative;
+    transition: all 0.3s;
+    
+    &:not(.internal)::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        background: var(--secondary);
+        transition: width 0.3s;
+    }
+    
+    &:not(.internal):hover::after {
+        width: 100%;
+    }
+    
+    &.internal {
+        background: none !important;
+        padding: 0 !important;
+        
+        &:hover {
+            color: var(--tertiary);
+        }
+    }
+}
+
+// Button styling
+button {
+    background: var(--dark);
+    color: var(--light);
+    border: 3px solid var(--dark);
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    cursor: pointer;
+    
+    &:hover {
+        background: var(--light);
+        color: var(--dark);
+    }
+}
+
+// Tag styling
+.tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    
+    .tag-link {
+        background: var(--light);
+        border: 2px solid var(--dark);
+        color: var(--dark);
+        padding: 8px 16px;
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s;
+        
+        &:hover {
+            background: var(--secondary);
+            color: var(--light);
+            border-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 0 var(--dark);
+        }
+        
+        &::before {
+            content: none; // Remove default # prefix
+        }
+    }
+}
+
+// Code blocks with brutal styling
+pre {
+    border: 3px solid var(--dark) !important;
+    background: var(--lightgray);
+    padding: 20px !important;
+    
+    code {
+        background: none !important;
+    }
+}
+
+// Inline code
+code:not(pre code) {
+    background: var(--dark);
+    color: var(--light);
+    padding: 2px 6px;
+    border-radius: 0;
+    font-weight: 700;
+}
+
+// Blockquotes
+blockquote {
+    border-left: 5px solid var(--secondary);
+    background: var(--lightgray);
+    padding: 20px;
+    margin: 20px 0;
+    font-weight: 600;
+}
+
+// Search styling
+.search-container {
+    input[type="search"] {
+        border: 3px solid var(--dark);
+        background: var(--light);
+        padding: 12px 20px;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s;
+        
+        &:focus {
+            outline: none;
+            box-shadow: 0 4px 0 var(--dark);
+            transform: translateY(-2px);
+        }
+    }
+}
+
+// Table styling
+table {
+    border-collapse: collapse;
+    border: 3px solid var(--dark);
+    
+    th {
+        background: var(--dark);
+        color: var(--light);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 15px;
+    }
+    
+    td {
+        border: 2px solid var(--dark);
+        padding: 15px;
+        background: var(--light);
+    }
+    
+    tr:hover td {
+        background: var(--lightgray);
+    }
+}
+
+// Footer
+footer {
+    border-top: 4px solid var(--dark);
+    background: var(--dark);
+    color: var(--light);
+    padding: 40px 0;
+    margin-top: 80px;
+    
+    p, a {
+        color: var(--light);
+    }
+    
+    a:hover {
+        color: var(--secondary);
+    }
+}
+
+// Graph view styling
+.graph-outer {
+    border: 3px solid var(--dark);
+    background: var(--light);
+}
+
+// Dark mode adjustments
+:root[saved-theme="dark"] {
+    .sidebar {
+        border-color: var(--dark);
+        background: var(--light);
+    }
+    
+    article.popover-hint {
+        border-color: var(--dark);
+        background: var(--light);
+    }
+    
+    pre {
+        border-color: var(--dark);
+    }
+    
+    table {
+        border-color: var(--dark);
+        
+        th {
+            background: var(--dark);
+            color: var(--light);
+        }
+        
+        td {
+            border-color: var(--dark);
+        }
+    }
+}
+
+// Disable rounded corners everywhere for brutalist feel
+* {
+    border-radius: 0 !important;
+}
+
+// Strong uppercase headings in content
+.page-header h1 {
+    font-size: 64px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    margin: 40px 0;
+}
+
+// Content meta styling
+.content-meta {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    margin: 20px 0;
+}
+
+// Popover styling
+.popover {
+    border: 3px solid var(--dark) !important;
+    background: var(--light) !important;
+    box-shadow: 0 8px 0 var(--dark) !important;
+}
+
+// TOC styling
+.toc {
+    border: 3px solid var(--dark);
+    background: var(--light);
+    padding: 20px;
+    
+    a {
+        font-weight: 600 !important;
+        text-transform: none;
+        
+        &:hover {
+            background: var(--secondary);
+            color: var(--light);
+            padding: 2px 8px;
+            margin: -2px -8px;
+        }
+    }
+}
+
+// List page styling (folders/tags)
+.page-listing {
+    .section-li {
+        border: 3px solid var(--dark) !important;
+        background: var(--light) !important;
+        transition: all 0.3s !important;
+        
+        &:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: 0 8px 0 var(--dark) !important;
+            background: var(--lightgray) !important;
+        }
+    }
+}
+
+// Make everything more brutal and angular
+.page, .sidebar, article, .popover, pre, table, .graph-outer {
+    box-shadow: none !important;
+}
+
+// Red accents for emphasis
+::selection {
+    background: var(--secondary);
+    color: var(--light);
+}
+
+// Badge/Pill styling
+.content-meta {
+    background: var(--dark);
+    color: var(--light);
+    padding: 8px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px 0;
+    display: inline-block;
+    border: 3px solid var(--dark);
+    
+    &:hover {
+        background: var(--secondary);
+        border-color: var(--secondary);
+    }
+}
+
+// Hero-style text effects
+.page-title {
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 5px;
+        background: var(--secondary);
+    }
+}
+
+// Stats/Grid styling
+.section-ul {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 20px !important;
+    
+    .section-li {
+        &:hover {
+            background: var(--lightgray) !important;
+            transform: translateY(-8px) !important;
+            box-shadow: 0 12px 0 var(--dark) !important;
+        }
+    }
+}
+
+// Feature card grid styling
+.recent-notes, .backlinks {
+    h3 {
+        background: var(--dark);
+        color: var(--light);
+        padding: 15px 20px;
+        margin: 0 -20px 20px -20px;
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
+
+// CTA button styling for main actions
+.cta-primary {
+    background: var(--secondary);
+    color: var(--light);
+    border: 3px solid var(--secondary);
+    padding: 16px 32px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+    
+    &:hover {
+        background: var(--dark);
+        border-color: var(--dark);
+        transform: translateY(-4px);
+        box-shadow: 0 4px 0 var(--dark);
+    }
+}
+
+.cta-secondary {
+    background: var(--light);
+    color: var(--dark);
+    border: 3px solid var(--dark);
+    padding: 16px 32px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+    
+    &:hover {
+        background: var(--tertiary);
+        color: var(--light);
+        border-color: var(--tertiary);
+        transform: translateY(-4px);
+        box-shadow: 0 4px 0 var(--dark);
+    }
+}
+
+// Trust bar / meta info styling
+.trust-bar {
+    background: var(--light);
+    border: 3px solid var(--dark);
+    padding: 30px;
+    margin: 40px 0;
+    text-align: center;
+    
+    .trust-label {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: 0.6;
+        margin-bottom: 15px;
+    }
+    
+    .trust-items {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        
+        .trust-item {
+            padding: 8px 16px;
+            border: 2px solid var(--dark);
+            background: var(--lightgray);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            
+            &:hover {
+                background: var(--secondary);
+                color: var(--light);
+                border-color: var(--secondary);
+            }
+        }
+    }
+}
+
+// Brutalist form styling
+input, textarea {
+    border: 3px solid var(--dark) !important;
+    background: var(--light) !important;
+    padding: 12px 16px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s !important;
+    
+    &:focus {
+        outline: none !important;
+        box-shadow: 0 4px 0 var(--dark) !important;
+        transform: translateY(-2px) !important;
+        border-color: var(--secondary) !important;
+    }
+}
+
+// Enhanced link hover effects
+a:not(.internal):not(.tag-link) {
+    position: relative;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -5px;
+        right: -5px;
+        bottom: 0;
+        background: var(--secondary);
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s;
+    }
+    
+    &:hover::before {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+    
+    &:hover {
+        color: var(--light);
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 800px) {
+    .page-header h1 {
+        font-size: 36px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    aside.sidebar {
+        margin: 10px 0;
+    }
+    
+    .trust-bar .trust-items {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .section-ul {
+        grid-template-columns: 1fr !important;
+    }
+}
