@@ -30,11 +30,11 @@ async function generateSocialImage(
   userOpts: SocialImageOptions,
 ): Promise<Readable> {
   const { width, height } = userOpts
-  const iconPath = joinSegments(QUARTZ, "static", "icon.png")
+  const iconPath = joinSegments(QUARTZ, "static", "TinyCloudSmall.jpg")
   let iconBase64: string | undefined = undefined
   try {
     const iconData = await fs.readFile(iconPath)
-    iconBase64 = `data:image/png;base64,${iconData.toString("base64")}`
+    iconBase64 = `data:image/jpeg;base64,${iconData.toString("base64")}`
   } catch (err) {
     console.warn(styleText("yellow", `Warning: Could not find icon at ${iconPath}`))
   }
@@ -156,7 +156,7 @@ export const CustomOgImages: QuartzEmitterPlugin<Partial<SocialImageOptions>> = 
             const generatedOgImagePath = isRealFile
               ? `https://${baseUrl}/${pageData.slug!}-og-image.webp`
               : undefined
-            const defaultOgImagePath = `https://${baseUrl}/static/og-image.png`
+            const defaultOgImagePath = `https://${baseUrl}/static/TinyCloudSmall.jpg`
             const ogImagePath = userDefinedOgImagePath ?? generatedOgImagePath ?? defaultOgImagePath
             const ogImageMimeType = `image/${getFileExtension(ogImagePath) ?? "png"}`
             return (
