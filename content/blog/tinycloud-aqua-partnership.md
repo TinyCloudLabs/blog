@@ -1,5 +1,5 @@
 ---
-title: "TinyCloud Partners with Aqua Protocol to Build the Future of Verifiable User-Owned Data"
+title: "TinyCloud Partners with Aqua Protocol for Verifiable User-Owned Data"
 description: "TinyCloud and Aqua Protocol are joining forces to create sovereign data infrastructure that empowers users with true ownership and control over their digital lives."
 date: 2025-10-09
 tags:
