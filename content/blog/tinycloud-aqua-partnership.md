@@ -43,9 +43,9 @@ Example Use Cases:
 - **Privacy-Preserving Location Sharing:** Share location or proximity with network members
 
 **Zero-Trust Data Marketplace with Marketplace Capabilities**
-TinyCloud and Aqua are coming together to build a zero-trust architecture for selling data using TinyCloud instances, Aqua protocol, our shared policy engine, and EigenCloud TEEs for verifiable execution, with on-chain escrow services to ensure trustless data transactions.
+TinyCloud and Aqua are coming together to build a zero-trust architecture for selling data using TinyCloud instances, Aqua protocol, our shared policy engine, and TEEs for verifiable execution, with on-chain escrow services to ensure trustless data transactions.
 
-This platform uses verifiable, trusted execution environments, cryptographic receipts, and smart contract escrows to ensure buyers receive promised data while guaranteeing sellers get paid—without requiring either party to trust the other. By combining TinyCloud's object capability-based data sharing, Aqua's legal contract integration and cryptographic verification, our shared policy engine, and EigenCloud's TEE infrastructure, we solve the fundamental trust problems that lead to data marketplace failures while enabling legally-binding data transactions with institutional credential verification.
+This platform uses verifiable, trusted execution environments, cryptographic receipts, and smart contract escrows to ensure buyers receive promised data while guaranteeing sellers get paid—without requiring either party to trust the other. By combining TinyCloud's object capability-based data sharing, Aqua's legal contract integration and cryptographic verification, our shared policy engine, and TEE infrastructure, we solve the fundamental trust problems that lead to data marketplace failures while enabling legally-binding data transactions with institutional credential verification.
 
 ## A shared framework
 
